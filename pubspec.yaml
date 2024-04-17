@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_map: ^6.1.0
+  flutter_map_location_marker: ^8.0.8
   geolocator: ^11.0.0
   latlong2: ^0.9.1
   mapbox_gl: ^0.16.0
@@ -21,3 +22,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/custom-icon.png

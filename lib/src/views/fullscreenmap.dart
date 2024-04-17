@@ -59,6 +59,9 @@ class _FullScreenMapState extends State<FullScreenMap> {
             .cast<List<LatLng>>();
       }
     }
+
+    //onMapClick(point, latLng);
+
   }
 
   @override
@@ -80,7 +83,6 @@ class _FullScreenMapState extends State<FullScreenMap> {
   }
 
   
-
  
 }
 
