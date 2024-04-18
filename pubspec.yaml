@@ -24,3 +24,4 @@ flutter:
   uses-material-design: true
   assets:
     - assets/custom-icon.png
+    - assets/json/markerdata.json
