@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_map: ^6.1.0
-  flutter_map_location_marker: ^8.0.8
+  flutter_map_marker_popup: ^6.1.2
   geolocator: ^11.0.0
   latlong2: ^0.9.1
   mapbox_gl: ^0.16.0

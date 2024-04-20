@@ -3,6 +3,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter_map_marker_popup/flutter_map_marker_popup.dart';
 
 class mapshowpage extends StatefulWidget {
   @override
@@ -12,6 +13,7 @@ class mapshowpage extends StatefulWidget {
 class _mapshowpageState extends State<mapshowpage>{
 
   List<Marker> allMarkers = [];
+  MapController mapController = MapController();
 
   @override 
   void initState() {
@@ -33,7 +35,30 @@ Future<void> loadMarkers() async {
       point: LatLng(markerJson['lat'] as double, markerJson['lng'] as double), 
       child: GestureDetector(
         onTap: () {
-          print('Marker at ${markerJson['lat']}, ${markerJson['lng']} tapped');
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text('Marker Info'),
+                content: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Latitude: ${markerJson['lat']}'),
+                    Text('Longitude: ${markerJson['lng']}'),
+                    Text('Name: ${markerJson['name']}'),
+                  ],
+                ),
+                actions: [
+                  TextButton(
+                    child: Text('Close'),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              );
+            },
+          );
         },
         child: Column(
           children: [
@@ -56,6 +81,8 @@ Future<void> loadMarkers() async {
             options: MapOptions(
               center: LatLng(13.745152201874209, 100.56455251503306),
               zoom: 17.2,
+             // swPanBoundary: LatLng(13.744152201874209, 100.56355251503306),
+             // nePanBoundary: LatLng(13.746152201874209, 100.56555251503306
             ),
             children: [
               TileLayer(
