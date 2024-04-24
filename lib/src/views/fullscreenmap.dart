@@ -4,6 +4,7 @@ import 'package:latlong2/latlong.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_map_marker_popup/flutter_map_marker_popup.dart';
+import 'package:custom_info_window/custom_info_window.dart';
 
 class mapshowpage extends StatefulWidget {
   @override
@@ -40,27 +41,33 @@ class _mapshowpageState extends State<mapshowpage> {
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: Text('Marker Info'),
-                      content: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Latitude: ${markerJson['lat']}'),
-                          Text('Longitude: ${markerJson['lng']}'),
-                          Text(
-                            'Building: ${markerJson['Building']}',
+                    return Dialog(
+                      child: Container(
+                        width: 500, // Set the width
+                        height: 300, // Set the height
+                        child: AlertDialog(
+                          title: Text('Marker Info'),
+                          content: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Latitude: ${markerJson['lat']}'),
+                              Text('Longitude: ${markerJson['lng']}'),
+                              Text(
+                                'Building: ${markerJson['Building']}',
+                              ),
+                              Text('Name: ${markerJson['Name']}'),
+                            ],
                           ),
-                          Text('Name: ${markerJson['Name']}'),
-                        ],
-                      ),
-                      actions: [
-                        TextButton(
-                          child: Text('Close'),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
+                          actions: [
+                            TextButton(
+                              child: Text('Close'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     );
                   },
                 );
@@ -92,11 +99,11 @@ class _mapshowpageState extends State<mapshowpage> {
               enableMultiFingerGestureRace: true,
               //disble interact
               interactiveFlags: InteractiveFlag.doubleTapDragZoom |
-                    InteractiveFlag.doubleTapZoom |
-              InteractiveFlag.flingAnimation |
-              InteractiveFlag.pinchZoom |
-              InteractiveFlag.scrollWheelZoom,    
-              rotation: -15.0, 
+                  InteractiveFlag.doubleTapZoom |
+                  InteractiveFlag.flingAnimation |
+                  InteractiveFlag.pinchZoom |
+                  InteractiveFlag.scrollWheelZoom,
+              rotation: -15.0,
             ),
             children: [
               TileLayer(
