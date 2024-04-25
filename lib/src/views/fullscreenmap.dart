@@ -139,7 +139,7 @@ class _mapshowpageState extends State<mapshowpage> {
             hintStyle: TextStyle(color: Colors.grey[400]),
             icon: Icon(
               Icons.search,
-              color: Colors.white,
+              color: Colors.black,
             ),
           ),
         ),
