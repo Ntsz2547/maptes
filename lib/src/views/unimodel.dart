@@ -40,7 +40,7 @@ class _LayerMapState extends State<LayerMap> {
                     ),
   );
                 },
-                child: Text('Button'),
+                child: Text('Get Started'),
               ),
             ),
           ],
