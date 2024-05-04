@@ -4,7 +4,6 @@ import 'package:latlong2/latlong.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_map_marker_popup/flutter_map_marker_popup.dart';
-import 'package:custom_info_window/custom_info_window.dart';
 
 class mapshowpage extends StatefulWidget {
   @override

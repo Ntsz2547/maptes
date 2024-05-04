@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mapbox_gl/mapbox_gl.dart';
 import 'package:maptes/src/views/fullscreenmap.dart';
+import 'package:maptes/src/views/unimodel.dart';
 
 
 
@@ -16,10 +17,9 @@ class _MainAppState extends State<MainApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Map Test',
       home: Scaffold(
         body: Center(
-          child: mapshowpage(),
+          child: LayerMap(),
         ),
       ),
     );
