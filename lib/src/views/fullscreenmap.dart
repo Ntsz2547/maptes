@@ -3,10 +3,8 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
-<<<<<<< HEAD
-=======
 import 'package:maptes/src/views/maplistview.dart';
->>>>>>> cap
+
 
 class mapshowpage extends StatefulWidget {
   @override
