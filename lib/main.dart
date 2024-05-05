@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mapbox_gl/mapbox_gl.dart';
-import 'package:maptes/src/views/fullscreenmap.dart';
-import 'package:maptes/src/views/unimodel.dart';
+import 'package:maptes/src/views/splashscreen.dart';
+
 
 
 
@@ -19,7 +18,7 @@ class _MainAppState extends State<MainApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Center(
-          child: LayerMap(),
+          child: SplashScreen(),
         ),
       ),
     );

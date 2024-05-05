@@ -18,14 +18,15 @@ class _LayerMapState extends State<LayerMap> {
         child: Stack(
           children: [
             InteractiveViewer(
-              minScale: 10.0,
-              maxScale: 20.0,
-              child: ModelViewer(
+              minScale: 10,
+              maxScale: 20,
+              child: const ModelViewer(
                 src: 'assets/maptest.glb',
                 alt: "MAPMOR",
                 cameraControls: true,
                 autoRotate: true,
                 disableZoom: false,
+
                 // Disable camera controls
               ),
             ),
@@ -34,11 +35,11 @@ class _LayerMapState extends State<LayerMap> {
               right: 16.0,
               child: ElevatedButton(
                 onPressed: () {
-                    Navigator.of(context).push(
-                     MaterialPageRoute(
-                  builder: (context) => mapshowpage(),
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => mapshowpage(),
                     ),
-  );
+                  );
                 },
                 child: Text('Get Started'),
               ),

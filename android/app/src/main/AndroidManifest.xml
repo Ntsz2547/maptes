@@ -3,7 +3,7 @@
     <application
         android:label="maptes"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/launcher_icon"
         android:usesCleartextTraffic="true">
         
         <meta-data android:name="com.mapbox.token" android:value="pk.eyJ1Ijoibm90aWNzemVybyIsImEiOiJjbHV6cW1udHAxZW9zMmtudzdzaTdpaGp0In0.biD8--EXRF9VUcLqY-9x5g" />
