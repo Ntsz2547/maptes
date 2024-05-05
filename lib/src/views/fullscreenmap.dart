@@ -54,11 +54,9 @@ class _mapshowpageState extends State<mapshowpage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: markerJson['Building'] == "-"
                                 ? [
-                                  Text('Lat ${markerJson['lat']}'),
-                                  Text('Lng ${markerJson['lng']}'),
-                                  Text('${markerJson['Name']}'),
-                                  
-                    
+                                    Text('Lat ${markerJson['lat']}'),
+                                    Text('Lng ${markerJson['lng']}'),
+                                    Text('${markerJson['Name']}'),
                                   ]
                                 : [
                                     Text('Lat ${markerJson['lat']}'),
@@ -83,7 +81,8 @@ class _mapshowpageState extends State<mapshowpage> {
               },
               child: Column(
                 children: [
-                  Icon(Icons.location_on, size: 45.0, color: Colors.green),
+                  Icon(Icons.location_on,
+                      size: 45.0, color: Color.fromRGBO(218, 33, 40, 1.0)),
                 ],
               ),
             )))
