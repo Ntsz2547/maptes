@@ -3,8 +3,6 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:flutter_map_marker_popup/flutter_map_marker_popup.dart';
-import 'package:custom_info_window/custom_info_window.dart';
 import 'package:maptes/src/views/maplistview.dart';
 
 class mapshowpage extends StatefulWidget {
@@ -84,7 +82,8 @@ class _mapshowpageState extends State<mapshowpage> {
               },
               child: Column(
                 children: [
-                  Icon(Icons.location_on, size: 45.0, color: Colors.green),
+                  Icon(Icons.location_on,
+                      size: 45.0, color: Color.fromRGBO(218, 33, 40, 1.0)),
                 ],
               ),
             )))
@@ -137,6 +136,23 @@ class _mapshowpageState extends State<mapshowpage> {
             },
           ),
         ],
+        title: TextField(
+          onChanged: (value) {
+            setState(() {
+              searchQuery = value;
+              updateDisplayedMarkers();
+            });
+          },
+          style: TextStyle(color: Colors.black),
+          decoration: InputDecoration(
+            hintText: 'Search',
+            hintStyle: TextStyle(color: Colors.grey[400]),
+            icon: Icon(
+              Icons.search,
+              color: Colors.black,
+            ),
+          ),
+        ),
       ),
       body: Stack(
         children: [
@@ -164,25 +180,6 @@ class _mapshowpageState extends State<mapshowpage> {
                 markers: allMarkers,
               ),
             ],
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              height: 50,
-              color: Colors.blue,
-              child: Center(
-                child: Text(
-                  'Bottom Bar',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
           ),
         ],
       ),
