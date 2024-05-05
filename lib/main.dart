@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:maptes/src/views/splashscreen.dart';
 
-
-
-
 void main() => runApp(MainApp());
 
 class MainApp extends StatefulWidget {
@@ -23,6 +20,4 @@ class _MainAppState extends State<MainApp> {
       ),
     );
   }
-  
 }
-
