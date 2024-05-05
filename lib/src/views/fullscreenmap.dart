@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_map_marker_popup/flutter_map_marker_popup.dart';
 import 'package:custom_info_window/custom_info_window.dart';
+import 'package:maptes/src/views/maplistview.dart';
 
 class mapshowpage extends StatefulWidget {
   @override
@@ -56,11 +57,9 @@ class _mapshowpageState extends State<mapshowpage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: markerJson['Building'] == "-"
                                 ? [
-                                  Text('Lat ${markerJson['lat']}'),
-                                  Text('Lng ${markerJson['lng']}'),
-                                  Text('${markerJson['Name']}'),
-                                  
-                    
+                                    Text('Lat ${markerJson['lat']}'),
+                                    Text('Lng ${markerJson['lng']}'),
+                                    Text('${markerJson['Name']}'),
                                   ]
                                 : [
                                     Text('Lat ${markerJson['lat']}'),
@@ -126,23 +125,18 @@ class _mapshowpageState extends State<mapshowpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: TextField(
-          onChanged: (value) {
-            setState(() {
-              searchQuery = value;
-              updateDisplayedMarkers();
-            });
-          },
-          style: TextStyle(color: Colors.black),
-          decoration: InputDecoration(
-            hintText: 'Search',
-            hintStyle: TextStyle(color: Colors.grey[400]),
+        actions: [
+          IconButton(
             icon: Icon(
-              Icons.search,
-              color: Colors.white,
+              Icons.menu,
+              color: Colors.black87,
             ),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ListviewBtn()));
+            },
           ),
-        ),
+        ],
       ),
       body: Stack(
         children: [
