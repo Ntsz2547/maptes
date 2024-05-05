@@ -3,6 +3,10 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
+<<<<<<< HEAD
+=======
+import 'package:maptes/src/views/maplistview.dart';
+>>>>>>> cap
 
 class mapshowpage extends StatefulWidget {
   @override
@@ -123,6 +127,18 @@ class _mapshowpageState extends State<mapshowpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.menu,
+              color: Colors.black87,
+            ),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ListviewBtn()));
+            },
+          ),
+        ],
         title: TextField(
           onChanged: (value) {
             setState(() {
@@ -167,25 +183,6 @@ class _mapshowpageState extends State<mapshowpage> {
                 markers: allMarkers,
               ),
             ],
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              height: 50,
-              color: Colors.blue,
-              child: Center(
-                child: Text(
-                  'Bottom Bar',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
           ),
         ],
       ),

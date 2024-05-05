@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:maptes/src/views/splashscreen.dart';
+=======
+import 'package:mapbox_gl/mapbox_gl.dart';
+import 'package:maptes/src/views/fullscreenmap.dart';
+import 'package:maptes/src/views/maplistview.dart';
+>>>>>>> cap
 
 void main() => runApp(MainApp());
 
