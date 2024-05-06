@@ -49,38 +49,54 @@ class _mapshowpageState extends State<mapshowpage> {
                       // ignore: sized_box_for_whitespace
                       child: Container(
                         width: 500, // Set the width
-                        height: 500, // Set the height
-                        child: AlertDialog(
-                          title: Text('Marker Info'),
-                          //contentPadding: const EdgeInsets.all(16.0),
-                          content: SingleChildScrollView(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: markerJson['Building'] == "-"
-                                  ? [
-                                      Text('${markerJson['Name']}'),
-                                      Text('${markerJson['Description']}')
-                                    ]
-                                  : [
-                                      Text('${markerJson['Name']}'),
-                                      Text('อาคาร ${markerJson['Building']}'),
-                                    ],
-                            ),
-                          ),
-
-                          actions: [
-                            ElevatedButton(
-                              onPressed: () {
-                                _launchURL(markerJson['Link']);
-                              },
-                              child: Text('Open Link'),
-                            ),
-                            TextButton(
-                              child: Text('Close'),
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                            ),
+                        height: 400, // Set the height
+                        child: Column(
+                          children: [
+                            Expanded(
+                                child: Container(
+                              height: 15,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 20.0, vertical: 50.0),
+                              alignment: Alignment.topCenter,
+                              child: Text(
+                                "Marker Info",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              color: Color.fromARGB(255, 255, 255, 255),
+                            )),
+                            Expanded(
+                                child: Container(
+                              height: 5,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 20.0, vertical: 0.0),
+                              alignment: Alignment.topCenter,
+                              child: Column(
+                                children: markerJson['Building'] == "-"
+                                    ? [
+                                        Text('${markerJson['Name']}'),
+                                        Text('${markerJson['Description']}')
+                                      ]
+                                    : [
+                                        Text('${markerJson['Name']}'),
+                                        Text('อาคาร ${markerJson['Building']}'),
+                                      ],
+                              ),
+                              color: Color.fromARGB(255, 255, 255, 255),
+                            )),
+                            Expanded(
+                                child: Container(
+                              height: 10,
+                              // padding: EdgeInsets.symmetric(
+                              //     horizontal: 20.0, vertical: 20.0),
+                              alignment: Alignment.topCenter,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  _launchURL(markerJson['Link']);
+                                },
+                                child: Text('Open Link'),
+                              ),
+                              color: Color.fromARGB(255, 255, 255, 255),
+                            )),
                           ],
                         ),
                       ),
