@@ -6,7 +6,6 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:maptes/src/views/maplistview.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 class mapshowpage extends StatefulWidget {
   @override
   _mapshowpageState createState() => _mapshowpageState();
@@ -68,14 +67,14 @@ class _mapshowpageState extends State<mapshowpage> {
                                     ],
                             ),
                           ),
-                          
+
                           actions: [
                             ElevatedButton(
-              onPressed: () {
-                _launchURL(markerJson['Link']);
-              },
-              child: Text('Open Link'),
-            ),
+                              onPressed: () {
+                                _launchURL(markerJson['Link']);
+                              },
+                              child: Text('Open Link'),
+                            ),
                             TextButton(
                               child: Text('Close'),
                               onPressed: () {
@@ -117,7 +116,6 @@ class _mapshowpageState extends State<mapshowpage> {
       throw 'Could not launch $url';
     }
   }
-
 
   void searchMarker() {
     String query = searchController.text;
