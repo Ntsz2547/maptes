@@ -14,6 +14,8 @@ dependencies:
   model_viewer_plus: ^1.7.2
   flutter_native_splash: ^2.4.0
   flutter_launcher_icons: ^0.13.1
+  http: ^1.2.1
+  url_launcher: ^6.2.6
 
 dev_dependencies:
   flutter_test:

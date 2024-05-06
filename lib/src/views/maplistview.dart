@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:url_launcher/url_launcher.dart';
 
 class ListviewBtn extends StatefulWidget {
   const ListviewBtn({Key? key}) : super(key: key);
@@ -100,7 +101,7 @@ class ListDetails extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Building Informations",
+          "Building Information",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         backgroundColor: Color(0xFFDA2128),
@@ -124,17 +125,27 @@ class ListDetails extends StatelessWidget {
             ),
             SizedBox(height: 8),
             Text(
-              "Latitude: ${building['lat']}",
+              "Description: ${building['Description']}",
               style: TextStyle(fontSize: 18, color: Colors.black),
             ),
             SizedBox(height: 8),
-            Text(
-              "Longtitude: ${building['lng']}",
-              style: TextStyle(fontSize: 18, color: Colors.black),
+            ElevatedButton(
+              onPressed: () {
+                _launchURL(building['Link']);
+              },
+              child: Text('Open Link'),
             ),
           ],
         ),
       ),
     );
+  }
+
+  void _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

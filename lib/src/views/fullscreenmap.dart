@@ -4,6 +4,7 @@ import 'package:latlong2/latlong.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:maptes/src/views/maplistview.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 class mapshowpage extends StatefulWidget {
@@ -49,22 +50,32 @@ class _mapshowpageState extends State<mapshowpage> {
                       // ignore: sized_box_for_whitespace
                       child: Container(
                         width: 500, // Set the width
-                        height: 300, // Set the height
+                        height: 500, // Set the height
                         child: AlertDialog(
                           title: Text('Marker Info'),
                           //contentPadding: const EdgeInsets.all(16.0),
-                          content: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: markerJson['Building'] == "-" 
-                                ? [                                    
-                                    Text('${markerJson['Name']}'),
-                                  ]
-                                : [                                
-                                    Text('${markerJson['Name']}'),
-                                    Text('อาคาร ${markerJson['Building']}'),
-                                  ],
+                          content: SingleChildScrollView(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: markerJson['Building'] == "-"
+                                  ? [
+                                      Text('${markerJson['Name']}'),
+                                      Text('${markerJson['Description']}')
+                                    ]
+                                  : [
+                                      Text('${markerJson['Name']}'),
+                                      Text('อาคาร ${markerJson['Building']}'),
+                                    ],
+                            ),
                           ),
+                          
                           actions: [
+                            ElevatedButton(
+              onPressed: () {
+                _launchURL(markerJson['Link']);
+              },
+              child: Text('Open Link'),
+            ),
                             TextButton(
                               child: Text('Close'),
                               onPressed: () {
@@ -90,6 +101,7 @@ class _mapshowpageState extends State<mapshowpage> {
       allMarkers = allMarkers;
     });
   }
+
   void updateDisplayedMarkers() {
     setState(() {
       displayedMarkers = allMarkers
@@ -97,6 +109,15 @@ class _mapshowpageState extends State<mapshowpage> {
           .toList();
     });
   }
+
+  void _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
 
   void searchMarker() {
     String query = searchController.text;
