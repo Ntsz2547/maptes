@@ -46,6 +46,7 @@ class _mapshowpageState extends State<mapshowpage> {
                   context: context,
                   builder: (BuildContext context) {
                     return Dialog(
+                      // ignore: sized_box_for_whitespace
                       child: Container(
                         width: 500, // Set the width
                         height: 300, // Set the height
@@ -54,15 +55,11 @@ class _mapshowpageState extends State<mapshowpage> {
                           //contentPadding: const EdgeInsets.all(16.0),
                           content: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: markerJson['Building'] == "-"
-                                ? [
-                                    Text('Lat ${markerJson['lat']}'),
-                                    Text('Lng ${markerJson['lng']}'),
+                            children: markerJson['Building'] == "-" 
+                                ? [                                    
                                     Text('${markerJson['Name']}'),
                                   ]
-                                : [
-                                    Text('Lat ${markerJson['lat']}'),
-                                    Text('Lng ${markerJson['lng']}'),
+                                : [                                
                                     Text('${markerJson['Name']}'),
                                     Text('อาคาร ${markerJson['Building']}'),
                                   ],
@@ -93,7 +90,6 @@ class _mapshowpageState extends State<mapshowpage> {
       allMarkers = allMarkers;
     });
   }
-
   void updateDisplayedMarkers() {
     setState(() {
       displayedMarkers = allMarkers
