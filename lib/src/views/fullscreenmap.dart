@@ -98,37 +98,7 @@ class _mapshowpageState extends State<mapshowpage> {
                               color: Color.fromARGB(255, 255, 255, 255),
                             )),
                           ],
-                          // title: Text('Marker Info'),
-                          // //contentPadding: const EdgeInsets.all(16.0),
-                          // content: SingleChildScrollView(
-                          //   child: Column(
-                          //     // crossAxisAlignment: CrossAxisAlignment.start,
-                          //     children: markerJson['Building'] == "-"
-                          //         ? [
-                          //             Text('${markerJson['Name']}'),
-                          //             Text('${markerJson['Description']}')
-                          //           ]
-                          //         : [
-                          //             Text('${markerJson['Name']}'),
-                          //             Text('อาคาร ${markerJson['Building']}'),
-                          //           ],
-                          //   ),
                         ),
-
-                        // actions: [
-                        //   ElevatedButton(
-                        //     onPressed: () {
-                        //       _launchURL(markerJson['Link']);
-                        //     },
-                        //     child: Text('Open Link'),
-                        //   ),
-                        //   TextButton(
-                        //     child: Text('Close'),
-                        //     onPressed: () {
-                        //       Navigator.of(context).pop();
-                        //     },
-                        //   ),
-                        // ],
                       ),
                     );
                   },
